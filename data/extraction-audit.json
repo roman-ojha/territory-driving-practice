@@ -1,0 +1,607 @@
+[
+  {
+    "page": 1,
+    "questions": 3,
+    "diagrams": 1
+  },
+  {
+    "page": 2,
+    "questions": 3,
+    "diagrams": 1
+  },
+  {
+    "page": 3,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 4,
+    "questions": 4,
+    "diagrams": 1
+  },
+  {
+    "page": 5,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 6,
+    "questions": 4,
+    "diagrams": 1
+  },
+  {
+    "page": 7,
+    "questions": 6,
+    "diagrams": 0
+  },
+  {
+    "page": 8,
+    "questions": 4,
+    "diagrams": 0
+  },
+  {
+    "page": 9,
+    "questions": 5,
+    "diagrams": 0
+  },
+  {
+    "page": 10,
+    "questions": 5,
+    "diagrams": 0
+  },
+  {
+    "page": 11,
+    "questions": 5,
+    "diagrams": 0
+  },
+  {
+    "page": 12,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 13,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 14,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 15,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 16,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 17,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 18,
+    "questions": 3,
+    "diagrams": 1
+  },
+  {
+    "page": 19,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 20,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 21,
+    "questions": 4,
+    "diagrams": 1
+  },
+  {
+    "page": 22,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 23,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 24,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 25,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 26,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 27,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 28,
+    "questions": 4,
+    "diagrams": 1
+  },
+  {
+    "page": 29,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 30,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 31,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 32,
+    "questions": 4,
+    "diagrams": 1
+  },
+  {
+    "page": 33,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 34,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 35,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 36,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 37,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 38,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 39,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 40,
+    "questions": 3,
+    "diagrams": 3
+  },
+  {
+    "page": 41,
+    "questions": 4,
+    "diagrams": 2
+  },
+  {
+    "page": 42,
+    "questions": 5,
+    "diagrams": 0
+  },
+  {
+    "page": 43,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 44,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 45,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 46,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 47,
+    "questions": 5,
+    "diagrams": 0
+  },
+  {
+    "page": 48,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 49,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 50,
+    "questions": 5,
+    "diagrams": 0
+  },
+  {
+    "page": 51,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 52,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 53,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 54,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 55,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 56,
+    "questions": 3,
+    "diagrams": 1
+  },
+  {
+    "page": 57,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 58,
+    "questions": 5,
+    "diagrams": 0
+  },
+  {
+    "page": 59,
+    "questions": 4,
+    "diagrams": 1
+  },
+  {
+    "page": 60,
+    "questions": 4,
+    "diagrams": 0
+  },
+  {
+    "page": 61,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 62,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 63,
+    "questions": 4,
+    "diagrams": 0
+  },
+  {
+    "page": 64,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 65,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 66,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 67,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 68,
+    "questions": 3,
+    "diagrams": 3
+  },
+  {
+    "page": 69,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 70,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 71,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 72,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 73,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 74,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 75,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 76,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 77,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 78,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 79,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 80,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 81,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 82,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 83,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 84,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 85,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 86,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 87,
+    "questions": 3,
+    "diagrams": 3
+  },
+  {
+    "page": 88,
+    "questions": 5,
+    "diagrams": 1
+  },
+  {
+    "page": 89,
+    "questions": 4,
+    "diagrams": 1
+  },
+  {
+    "page": 90,
+    "questions": 4,
+    "diagrams": 1
+  },
+  {
+    "page": 91,
+    "questions": 6,
+    "diagrams": 0
+  },
+  {
+    "page": 92,
+    "questions": 4,
+    "diagrams": 0
+  },
+  {
+    "page": 93,
+    "questions": 3,
+    "diagrams": 1
+  },
+  {
+    "page": 94,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 95,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 96,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 97,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 98,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 99,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 100,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 101,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 102,
+    "questions": 5,
+    "diagrams": 0
+  },
+  {
+    "page": 103,
+    "questions": 5,
+    "diagrams": 0
+  },
+  {
+    "page": 104,
+    "questions": 4,
+    "diagrams": 0
+  },
+  {
+    "page": 105,
+    "questions": 3,
+    "diagrams": 1
+  },
+  {
+    "page": 106,
+    "questions": 4,
+    "diagrams": 1
+  },
+  {
+    "page": 107,
+    "questions": 3,
+    "diagrams": 1
+  },
+  {
+    "page": 108,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 109,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 110,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 111,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 112,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 113,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 114,
+    "questions": 3,
+    "diagrams": 2
+  },
+  {
+    "page": 115,
+    "questions": 5,
+    "diagrams": 0
+  },
+  {
+    "page": 116,
+    "questions": 4,
+    "diagrams": 1
+  },
+  {
+    "page": 117,
+    "questions": 5,
+    "diagrams": 0
+  },
+  {
+    "page": 118,
+    "questions": 3,
+    "diagrams": 1
+  },
+  {
+    "page": 119,
+    "questions": 2,
+    "diagrams": 2
+  },
+  {
+    "page": 120,
+    "questions": 2,
+    "diagrams": 1
+  },
+  {
+    "page": 121,
+    "questions": 2,
+    "diagrams": 2
+  }
+]
