@@ -1,0 +1,14 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {questions} from '../data/questions.js';
+import {freshState,newTest,grade} from '../js/model.js';
+import {dashboard} from '../js/dashboard.js';
+import {questionCard,practiceView} from '../js/question.js';
+import {sessionsView} from '../js/sessions.js';
+import {testsView,activeTestView,resultView} from '../js/tests.js';
+test('dashboard includes all 357 numbered questions and 80 completed cells',()=>{const s=freshState(),html=dashboard(s,questions,s.sessions[0]);assert.equal((html.match(/data-action="inspect"/g)||[]).length,357);assert.equal((html.match(/class="cell done/g)||[]).length,80);assert.match(html,/277/);});
+test('answers are hidden before answering and after wrong answers',()=>{const q=questions[0];assert.doesNotMatch(questionCard(q,[]),/option correct/);assert.doesNotMatch(questionCard(q,[],{selected:0,feedback:'incorrect'}),/option correct/);assert.match(questionCard(q,[],{reveal:true}),/option correct/);});
+test('test never discloses answers or stars',()=>{const t=newTest(questions),html=activeTestView(t,questions);assert.doesNotMatch(html,/option correct|data-action="star"|Show correct answer/);});
+test('completed session gets congratulatory state and reset path',()=>{const s=freshState();assert.match(practiceView(null,s,s.sessions[0]),/Congratulations/);assert.match(practiceView(null,s,s.sessions[0]),/Manage sessions/);});
+test('user text is escaped in sessions and overview',()=>{const s=freshState();s.sessions[0].name='<img src=x onerror=alert(1)>';assert.doesNotMatch(sessionsView(s),/<img src=x/);assert.match(dashboard(s,questions,s.sessions[0]),/&lt;img/);});
+test('empty and populated test history both render',()=>{const s=freshState();assert.match(testsView(s),/first test/);const t=grade(newTest(questions),questions);s.tests=[t];assert.match(testsView(s),/Mock test 1/);assert.equal((resultView(t,questions,[]).match(/<details/g)||[]).length,30);});

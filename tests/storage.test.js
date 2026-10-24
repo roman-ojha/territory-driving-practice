@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {freshState,STORAGE_KEY} from '../js/model.js';
+const data=new Map();
+globalThis.localStorage={getItem:k=>data.get(k)??null,setItem:(k,v)=>data.set(k,v)};
+const storage=await import('../js/storage.js');
+test('storage persists progress without reapplying initial seeds',()=>{const s=storage.load();s.sessions[0].completed={};s.stars=[];assert.ok(storage.save(s));const restored=storage.load();assert.deepEqual(restored.stars,[]);assert.equal(Object.keys(restored.sessions[0].completed).length,0);});
+test('invalid saved data is preserved and never silently overwritten',()=>{data.set(STORAGE_KEY,'invalid json');storage.load();assert.ok(storage.storageIssue);assert.equal(storage.save(freshState()),false);assert.equal(data.get(STORAGE_KEY),'invalid json');});
+test('valid backup recovers storage and restores exact progress',()=>{const s=freshState();assert.deepEqual(storage.importBackup(JSON.stringify(s)),s);assert.equal(storage.storageIssue,'');assert.ok(storage.save(s));});
+test('invalid import does not replace valid storage',()=>{const before=data.get(STORAGE_KEY);assert.throws(()=>storage.importBackup('{}'));assert.equal(data.get(STORAGE_KEY),before);});
