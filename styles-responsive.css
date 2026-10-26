@@ -6,3 +6,5 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
 @media(max-width:620px){body nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible;gap:5px}body nav a{font-size:9px;padding:10px 7px;gap:5px}body nav b{padding:2px 3px}body .road-art{opacity:.35}body .hero>div:first-child{position:relative;z-index:2}}
+
+.practice-actions{flex-wrap:wrap}
