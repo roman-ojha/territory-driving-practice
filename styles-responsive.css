@@ -8,3 +8,5 @@
 @media(max-width:620px){body nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible;gap:5px}body nav a{font-size:9px;padding:10px 7px;gap:5px}body nav b{padding:2px 3px}body .road-art{opacity:.35}body .hero>div:first-child{position:relative;z-index:2}}
 
 .practice-actions{flex-wrap:wrap}
+
+.share-qr{width:min(100%,400px);margin:18px auto;background:white;padding:8px}.share-qr svg{display:block;width:100%;height:auto}#share-link{font-size:12px}#share-message,#import-share-message{font-size:12px;color:#36744e}

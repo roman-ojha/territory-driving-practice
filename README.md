@@ -33,6 +33,7 @@ Official instructions: [Creating a GitHub Pages site](https://docs.github.com/en
 - **Question map:** all 357 numbered cells, green completion, gold starred indicators, and filters for completed, remaining, or starred questions.
 - **Starred review:** a shuffled review queue independent of session completion. Stars belong only to the active session; new sessions start with no stars. Finishing review keeps that session's stars for future revision. Existing shared stars from older versions migrate to the original (first-created) session only, including when importing an older backup.
 - **Mock tests:** 30 unique random questions from the full bank and a two-hour deadline. Answers can be changed before submission. The deadline and answers survive reloads. Expired tests submit on the next timer tick, focus, or page opening. All attempts retain the chosen answers and a review of the correct answers.
+- **Share a session:** choose **My sessions → Share**, then scan the QR code or copy the link. On the receiving device, review the snapshot and choose **Import as a new session**. This appends a separate copy without replacing any existing sessions or tests. Links include the name, completed-question methods and stars, but not answer dates, test history or temporary navigation. Sharing is a one-time snapshot, not automatic sync. Anyone with the link can read it; the payload is in the URL fragment and is not sent in the hosting request. QR generation runs locally using the bundled MIT-licensed `qrcode-generator` library. Localhost sharing targets this repository’s GitHub Pages URL; publish the update before using it on another device. If you fork this project, change `PUBLIC_SITE` in `js/share.js`.
 - **Backup:** export/import sessions, stars, completed tests, and a test in progress from My sessions.
 
 ## Data and privacy
@@ -57,7 +58,7 @@ See [source notes](docs/source-notes.md) for extraction and verification details
 python scripts/extract_pdf.py /path/to/class-c-knowledge-test.pdf
 ```
 
-The UI is split by responsibility: `model.js` contains state operations, `storage.js` persistence, view modules generate escaped HTML, and `app.js` coordinates interactions. No remote fonts, scripts, analytics, or production dependencies are loaded.
+The UI is split by responsibility: `model.js` contains state operations, `storage.js` persistence, view modules generate escaped HTML, and `app.js` coordinates interactions. No remote fonts, scripts, or analytics are loaded. The QR generator is vendored locally in `js/vendor/` with its license; no dependency installation is needed.
 
 ## Commit dates
 

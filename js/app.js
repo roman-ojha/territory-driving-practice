@@ -1,3 +1,5 @@
+import {decodeSession,importSharedSession} from './share.js';
+import {sharingDialog,sharedPreview} from './share-view.js';
 import {PracticeHistory} from './practice-history.js';
 import {questions} from '../data/questions.js';
 import {uid,nextQuestion,complete,shuffled,newTest,grade} from './model.js';
@@ -34,6 +36,7 @@ function render(){
    const entry=history().current||history().visit(starQueue[starIndex]??null);current=questions.find(q=>q.id===entry.id);status=entry.status;
    main.innerHTML=session().stars.length||current?practiceScreen():heading('FOCUSED REVIEW','A place for the tricky ones.','')+empty('No starred questions yet.','Select the star on any practice question to save it here.',button('practice','Start practising'));
  }
+ else if(page.startsWith('share='))main.innerHTML=sharedPreview(page.slice(6));
  else if(page==='sessions')main.innerHTML=sessionsView(state);
  else if(page==='tests')main.innerHTML=testsView(state);
  else if(page==='test')main.innerHTML=state.activeTest?activeTestView(state.activeTest,questions):testsView(state);
@@ -43,12 +46,30 @@ function render(){
  timer();
 }
 function confirmDialog(title,text,action,extra=''){modal(`<h2>${title}</h2><p>${text}</p><div class="dialog-actions">${button('close','Cancel','secondary')}${button(action,'Confirm','primary',extra)}</div>`);}
-document.addEventListener('click',e=>{
+document.addEventListener('click',async e=>{
  const b=e.target.closest('[data-action]');if(!b)return;
  const a=b.dataset.action,id=b.dataset.id,number=Number(id);
  if(['test-answer','test-next','test-prev','test-jump','submit-test','confirm-submit'].includes(a)&&checkDeadline())return;
  if(['practice','tests','sessions'].includes(a)){status={};go(a);return;}
  if(a==='close'){closeModal();return;}
+ if(a==='share-session'){const s=state.sessions.find(s=>s.id===id);if(s)modal(sharingDialog(s,location.href));return;}
+ if(a==='copy-session-link'){
+   const input=document.querySelector('#share-link');
+   try{await navigator.clipboard.writeText(input.value);document.querySelector('#share-message').textContent='Link copied. Send it to your other device.';}
+   catch{input.focus();input.select();document.querySelector('#share-message').textContent='Select and copy the link above using your browser’s Copy command.';}
+   return;
+ }
+ if(a==='import-shared'){
+   try{
+     const candidate=importSharedSession(state,decodeSession(route().slice(6)));
+     if(!save(candidate)){document.querySelector('#import-share-message').textContent=storageIssue;return;}
+     state=candidate;status={};histories.clear();starQueue=null;
+     // Remove the snapshot from the address bar after a successful import.
+     window.history.replaceState(null,'',location.pathname+location.search+'#sessions');
+     render();toast('Session imported as a separate copy.');
+   }catch(e){toast(e.message);}
+   return;
+ }
  if(a==='star'){session().stars=session().stars.includes(number)?session().stars.filter(x=>x!==number):[...session().stars,number];persist();if(document.querySelector('#modal').open){b.textContent=session().stars.includes(number)?'★ Starred':'☆ Star question';b.setAttribute('aria-pressed',session().stars.includes(number));document.querySelector('#star-count').textContent=session().stars.length;}else render();return;}
  if(a==='answer'&&current&&!status.reveal&&status.feedback!=='correct'){
    status.selected=Number(b.dataset.option);status.feedback=status.selected===current.answer?'correct':'incorrect';
