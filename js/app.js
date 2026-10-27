@@ -2,7 +2,7 @@ import {decodeSession,importSharedSession} from './share.js';
 import {sharingDialog,sharedPreview} from './share-view.js';
 import {PracticeHistory} from './practice-history.js';
 import {questions} from '../data/questions.js';
-import {uid,nextQuestion,complete,shuffled,newTest,grade} from './model.js';
+import {uid,nextQuestion,complete,shuffled,newTest,grade,deleteSession} from './model.js';
 import {load,save,storageIssue,exportBackup,importBackup} from './storage.js';
 import {esc,heading,button,empty,toast,modal,closeModal} from './ui.js';
 import {dashboard} from './dashboard.js';
@@ -88,6 +88,16 @@ document.addEventListener('click',async e=>{
  if(a==='practice-specific'){const key=`practice:${state.activeSession}`;if(!histories.has(key))histories.set(key,new PracticeHistory());histories.get(key).select(number);session().current=number;status={};persist();closeModal();go('practice');return;}
  if(a==='create-session'||a==='rename-session'){const s=state.sessions.find(x=>x.id===id);modal(`<h2>${s?'Rename session':'A new road ahead.'}</h2><form id="session-form" data-id="${s?.id||''}"><label class="form-label">Session name<input name="name" maxlength="80" required value="${esc(s?.name||'')}" placeholder="e.g. The final stretch" autofocus></label><div class="dialog-actions">${button('close','Cancel','secondary')}<button type="submit" class="primary">${s?'Save name':'Create session'}</button></div></form>`);return;}
  if(a==='use-session'){state.activeSession=id;status={};persist();go('practice');return;}
+ if(a==='delete-session'){
+   const target=state.sessions.find(s=>s.id===id);if(!target)return;
+   modal(`<h2>Delete “${esc(target.name)}”?</h2><p>This permanently removes this session’s completed questions and stars from this browser. Other sessions and test results stay saved. Export a backup first if you want to keep a copy.</p>${state.sessions.length===1?'<p>This is your last session. An empty practice session will be created in its place.</p>':''}<div class="dialog-actions">${button('close','Cancel','secondary')}${button('confirm-delete-session','Delete session','danger-button',`data-id="${esc(id)}"`)}</div><p id="delete-session-message" role="alert"></p>`);return;
+ }
+ if(a==='confirm-delete-session'){
+   const candidate=deleteSession(state,id);
+   if(!save(candidate)){document.querySelector('#delete-session-message').textContent=storageIssue;return;}
+   state=candidate;histories.delete(`practice:${id}`);histories.delete('starred');starQueue=null;starIndex=0;current=null;status={};
+   closeModal();render();toast('Session deleted.');return;
+ }
  if(a==='reset-session'){confirmDialog('Start this session again?','This clears completion in this session only. Your stars, other sessions and test history stay saved.','confirm-reset',`data-id="${id}"`);return;}
  if(a==='confirm-reset'){const s=state.sessions.find(x=>x.id===id);s.completed={};s.current=null;histories.delete(`practice:${id}`);status={};persist();closeModal();render();toast('Session reset. A fresh start.');return;}
  if(a==='export'){exportBackup(state);return;}

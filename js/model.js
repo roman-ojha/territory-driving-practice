@@ -19,6 +19,12 @@ export function nextQuestion(questions,session){
   return q;
 }
 export function complete(session,id,method){session.completed[id]={method,at:Date.now()};session.current=null;}
+export function deleteSession(state,id){
+  if(!state.sessions.some(s=>s.id===id))return state;
+  const sessions=state.sessions.filter(s=>s.id!==id);
+  if(!sessions.length)sessions.push({id:uid(),name:'New practice session',createdAt:Date.now(),completed:{},current:null,stars:[]});
+  return {...state,sessions,activeSession:state.activeSession===id?sessions[0].id:state.activeSession};
+}
 export function newTest(questions){return {id:uid(),startedAt:Date.now(),deadline:Date.now()+TEST_DURATION,ids:shuffled(questions.map(q=>q.id)).slice(0,30),answers:{},index:0};}
 export function grade(test,questions,reason='submitted'){
   return {...test,finishedAt:Date.now(),reason,score:test.ids.filter(id=>questions.find(q=>q.id===id).answer===test.answers[id]).length};

@@ -10,3 +10,5 @@
 .practice-actions{flex-wrap:wrap}
 
 .share-qr{width:min(100%,400px);margin:18px auto;background:white;padding:8px}.share-qr svg{display:block;width:100%;height:auto}#share-link{font-size:12px}#share-message,#import-share-message{font-size:12px;color:#36744e}
+
+.delete-link{color:#a33d30}.danger-button{border:1px solid #a33d30;background:#a33d30;color:white;border-radius:7px;padding:12px 18px;font:inherit;font-size:12px;font-weight:600}.danger-button:hover{background:#852f25}#delete-session-message{color:#a33d30}
