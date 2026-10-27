@@ -84,6 +84,13 @@ document.addEventListener('click',async e=>{
    status={};if(route()==='starred')starIndex++;else{const prev=current?.id;session().current=null;const pool=questions.filter(q=>!session().completed[q.id]&&q.id!==prev);session().current=shuffled(pool)[0]?.id??null;persist();}render();return;
  }
  if(a==='restart-stars'){histories.delete('starred');starQueue=shuffled(session().stars);starIndex=0;status={};render();return;}
+ if(a==='inspect'&&session().completed[number]){
+   const active=session(),completed={...active.completed};delete completed[number];
+   const candidate={...state,sessions:state.sessions.map(s=>s.id===active.id?{...s,completed}:s)};
+   if(!save(candidate)){toast(storageIssue);return;}
+   state=candidate;histories.get(`practice:${active.id}`)?.reopen(number);status={};current=null;
+   render();toast(`Question ${number} marked unfinished. You can practise it again.`);return;
+ }
  if(a==='inspect'){const q=questions.find(q=>q.id===number),done=session().completed[number];modal(`<div class="panel-head"><h2>Question ${number}</h2>${button('close','Close ×','secondary')}</div>${questionCard(q,session().stars,{review:!!done,preview:true})}${done?'<p>This question is completed in your active session. Review it here without repeating it in practice.</p>':button('practice-specific','Practise this question →','primary',`data-id="${number}"`)}`);return;}
  if(a==='practice-specific'){const key=`practice:${state.activeSession}`;if(!histories.has(key))histories.set(key,new PracticeHistory());histories.get(key).select(number);session().current=number;status={};persist();closeModal();go('practice');return;}
  if(a==='create-session'||a==='rename-session'){const s=state.sessions.find(x=>x.id===id);modal(`<h2>${s?'Rename session':'A new road ahead.'}</h2><form id="session-form" data-id="${s?.id||''}"><label class="form-label">Session name<input name="name" maxlength="80" required value="${esc(s?.name||'')}" placeholder="e.g. The final stretch" autofocus></label><div class="dialog-actions">${button('close','Cancel','secondary')}<button type="submit" class="primary">${s?'Save name':'Create session'}</button></div></form>`);return;}

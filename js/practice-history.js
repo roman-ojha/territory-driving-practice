@@ -10,6 +10,12 @@ export class PracticeHistory {
     return this.current;
   }
   previous() { if (this.canGoBack) this.index--; }
+  reopen(id) {
+    // Drop the old completion screen and allow a fresh answer on revisits.
+    this.entries = this.entries.filter(entry => entry.id !== null);
+    for (const entry of this.entries) if (entry.id === id) entry.status = {};
+    this.index = Math.min(this.index, this.entries.length);
+  }
   next() { this.index++; return !!this.current; }
   select(id) {
     this.entries = this.entries.slice(0, this.index + 1);
